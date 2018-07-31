@@ -15,21 +15,41 @@ import { MyserviceProvider } from '../../providers/myservice/myservice'
   templateUrl: 'count.html',
 })
 export class CountPage {
-
+  // https://ghibliapi.herokuapp.com/films
+  // https://github.com/JerryLagos/julion-ion.git
   options: Array<{option: string, nota:string, img: string}>;
   listD:object = {error: true, data: []};
 
+  personas :Array<any>;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public actionSheetCtrl: ActionSheetController, 
     public platform: Platform,
     public alertCtrl: AlertController,
-    public rest: MyserviceProvider) 
-  { }
+    public rest: MyserviceProvider) { 
+
+      for (let index = 0; index < 5; index++) {
+        this.personas.push({
+          nombre: 'jerry' + 0,
+          apellido: 'Lagos' + 0,
+          cedula: "1000"+index+"58"
+        })
+        
+      }
+    }
+
+    funDelete(i){
+      this.personas.slice(i, 1);
+    }
 
   // Proceso para que se inicie de forma automatica
+  list :Array<any> = [];
+
+  
+
   ngOnInit(): void {
+    
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.options = [
@@ -41,6 +61,10 @@ export class CountPage {
     ]
   } 
 
+  // Funcion para guardar
+  // Funcion para consular
+  // Funcion para editar
+  // Funcion para editar
   // Proceso para traer mi servicio desde el mas alla y ponerlo mas aca 
 
   getService(){
@@ -131,3 +155,6 @@ export class CountPage {
   }
 
 }
+
+
+

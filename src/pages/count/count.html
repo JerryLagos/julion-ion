@@ -29,6 +29,16 @@
 </ion-header>
 
 <ion-content padding class="action-sheets-basic-page">
+
+
+  <ion-list >
+    <ion-item *ngFor="let persona  of  personas; let id = index" >
+      {{persona.nombre}}
+      <a (click)="funDelete(id)">Eliminar</a>
+    </ion-item>
+  </ion-list>
+
+
   <button ion-button block (click)="openMenu()">
     Show Action Sheet
   </button>

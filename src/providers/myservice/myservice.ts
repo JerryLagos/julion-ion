@@ -18,6 +18,4 @@ export class MyserviceProvider {
     return this.http.get('https://ghibliapi.herokuapp.com/films');
   }
   // this.HttpHeaders().set("Auto", "this is my information");
-
-  
 }
